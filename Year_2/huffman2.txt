@@ -1,0 +1,24 @@
+Given a set of character frequencies, simulate the construction of a Huffman Tree using a Priority Queue and calculate theWeighted Path Length (WPL), which represents the total bits after compression.
+
+Algorithm: Repeatedly extract the two smallest frequencies a,b, merge them into a+b, and add a+b back to the queue and the total cost.
+Complete this function
+input
+4
+1 1 2 2
+output
+12
+long long calculateWPL(vector<int>& freqs) {
+    // Min-Heap
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for (int f : freqs) pq.push(f);
+
+    long long totalWPL = 0;
+
+    // TODO: While pq.size() > 1:
+    // 1. Pop two smallest (a, b)
+    // 2. sum = a + b
+    // 3. Add sum to totalWPL
+    // 4. Push sum back to pq
+    
+    return totalWPL;
+}

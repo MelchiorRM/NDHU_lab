@@ -1,0 +1,29 @@
+Question 1: Who is the Most Popular?
+Description
+
+In a social network, we can consider "people"asVerticesand "friendships" asEdges. Assume friendships are bidirectional (Undirected Graph).
+
+Please write a program to read the social network data and calculate the number of friends each person has. In graph theory, this is called calculating theDegreeof each vertex.
+
+
+Input
+
+The first line contains two integers
+
+N and M
+M, representing the total number of people (vertices) and relationships (edges). People are numbered from 1 to N.
+
+The next M lines each contain two integers u and v, indicating that person u and person v are friends.
+
+
+Output N lines. The i-th line should contain a single integer representing the number of friends (degree) of person i.
+sample input: 
+4 3
+1 2
+2 3
+1 4
+sample output:
+2
+2
+1
+1

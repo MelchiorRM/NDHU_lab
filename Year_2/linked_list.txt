@@ -1,0 +1,26 @@
+Implement a singly linked list supporting various operations.
+
+Commands come from standard input, one per line:
+- `AH x` : add integer `x` at the head of the list.
+- `AT x` : add integer `x` at the tail of the list.
+- `AM x i` : insert integer `x` at index `i` (0-based). If `i` is greater than the current size, do nothing.
+- `RH` : remove the head element.
+- `RT` : remove the tail element.
+- `RV x` : remove the first occurrence of value `x`.
+- `P` : print the list in the format `v1 -> v2 -> ... -> nullptr`.
+
+Example input:
+```
+AH 5
+AT 10
+AM 7 1
+P
+RV 5
+P
+```
+
+Corresponding output:
+```
+5 -> 7 -> 10 -> nullptr
+7 -> 10 -> nullptr
+```

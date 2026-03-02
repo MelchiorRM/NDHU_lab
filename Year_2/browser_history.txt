@@ -1,0 +1,23 @@
+Implement a simple browser history manager using a doubly-linked list.
+
+Commands are read from standard input, one per line. Available commands:
+- `VISIT url` : visit a new URL, clearing any forward history.
+- `BACK` : move back one step; if already at the start, print "Can't go back".
+- `FORWARD` : move forward one step; if at the end, print "(Cannot go forward)".
+- `PRINT` : output the current URL or `(Empty)` if there is none.
+
+Input example:
+```
+VISIT google.com
+VISIT github.com
+BACK
+PRINT
+FORWARD
+PRINT
+```
+
+Output example:
+```
+google.com
+github.com
+```

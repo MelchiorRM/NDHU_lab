@@ -1,0 +1,14 @@
+This exercise involves implementing a simplified version of `std::vector` as a template class `MyVector<T>`.
+
+Required functionality:
+- Default constructor, destructor, copy assignment operator.
+- `push_back(const T&)` to append an element, doubling capacity when necessary.
+- `pop_back()` to remove the last element (throw if empty).
+- `resize(size_t)` to change the size.
+- `const T& at(size_t)` to access an element with bounds checking.
+
+The accompanying `main` simply prints a test message; the focus is on correctly managing dynamic memory and implementing the methods listed above.
+
+Notes:
+- Manage `_data`, `size`, and `capacity` members correctly.
+- Ensure the destructor frees allocated memory and exception-safe copy assignment.

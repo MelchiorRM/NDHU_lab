@@ -1,0 +1,141 @@
+Binary Heap(Complete Binary Tree)
+A binary heap is a complete binary tree that satisfies the heap property. In a max-heap, for any given node I, the value of I is greater than or equal to the values of its children. In a min-heap, the value of I is less than or equal to the values of its children.
+Properties of Binary Heap:
+1. Complete Binary Tree: A binary heap is always a complete binary tree, meaning all levels are fully filled except possibly for the last level, which is filled from left to right.
+2. Heap Property: In a max-heap, the value of each node is greater than or equal to the values of its children. In a min-heap, the value of each node is less than or equal to the values of its children.
+3. Shape Property: The binary heap maintains a specific shape, ensuring that the tree remains balanced.
+Array Representation:
+A binary heap can be efficiently represented using an array. For a node at index i:
+- The left child is located at index 2*i + 1
+- The right child is located at index 2*i + 2
+- The parent node is located at index (i - 1) / 2
+Operations on Binary Heap:
+1. Insertion: To insert a new element, add it to the end of the array and then "bubble up" to restore the heap property.
+2. Deletion: To delete the root element, replace it with the last element in the array, remove the last element, and then "bubble down" to restore the heap property.
+3. Peek: Retrieve the root element (maximum in max-heap or minimum in min-heap) without removing it.
+4. Heapify: Convert an arbitrary array into a binary heap by applying the heap property from the bottom up.
+
+How Your Binary Heap Program Works (Conceptual Explanation)
+
+A binary heap is a complete binary tree stored inside an array.
+Your program implements a max-heap, meaning:
+
+Every parent is always greater than or equal to its children.
+Therefore, the largest element is always at the root—index 0 of the array.
+
+The program maintains this property using two main operations:
+
+Floating Up (Sift-Up) → used during insertion
+
+Sifting Down (Heapify-Down) → used during removal
+
+The complete binary tree structure is always preserved because nodes are stored in a single, continuous array.
+
+⭐ 1. How Insertion Works (Push)
+
+When a new element is inserted:
+
+Step 1 — Add at the bottom
+
+The element is placed at the end of the array.
+This keeps the tree complete (fills each level from left to right).
+
+Step 2 — Compare child with parent
+
+Because inserting at the end may violate the heap order, the algorithm repeatedly compares:
+
+the newly added node
+
+its parent
+
+Step 3 — Swap if needed
+
+If the new element is larger than its parent, they are swapped.
+
+Step 4 — Climb upward
+
+This comparison and swapping continues until:
+
+the new element is no longer larger than its parent, or
+
+it reaches the root
+
+This process restores the heap property and takes log N time because the path from the bottom to the root is logarithmic in size.
+
+2. How Removal Works (Pop)
+
+Removing the maximum (the root) requires restoring the heap structure.
+
+Step 1 — Take out the root
+
+The root holds the maximum value.
+The program removes it by:
+
+Taking the last element in the array
+
+Moving that element to the root position
+
+This preserves the shape of the tree.
+
+Step 2 — Compare parent with children
+
+Now the element at the top might be smaller than one of its children.
+To restore order, the algorithm compares:
+
+the element at the root
+
+both of its child nodes
+
+Step 3 — Swap with the larger child
+
+It selects the larger of the two children because this is the child that should rise higher in a max-heap.
+
+If the new root is smaller than that child, the two are swapped.
+
+Step 4 — Continue pushing down
+
+This process is repeated:
+
+compare with children
+
+swap with the larger child
+
+move down one level
+
+Until the node reaches a position where:
+
+it is larger than both children, or
+
+it has no children (bottom of the tree)
+
+This takes log N time because the path from root to leaf is logarithmic.
+
+3. Why the Array Representation Works
+
+A binary heap doesn’t use pointers. Instead, the tree is stored as a flat array because the structure is always complete.
+
+This gives clean mathematical relationships:
+
+Left child index = 2 * i + 1
+
+Right child index = 2 * i + 2
+
+Parent index = (i - 1) / 2
+
+So with only arithmetic, you can navigate the tree.
+
+This makes heap operations extremely fast due to cache locality and no pointer overhead.
+
+4. Why the Heap Is Always Balanced
+
+A big advantage of binary heaps:
+
+They are always complete binary trees
+
+They never degrade into linked-list-shaped trees
+
+Their height is always log₂(N)
+
+This means all operations (push, pop) run in logarithmic time in the worst case.
+
+Balanced structure is guaranteed by always inserting nodes at the end and removing nodes from the root in a controlled way.

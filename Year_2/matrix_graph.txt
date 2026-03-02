@@ -1,0 +1,26 @@
+Question 2: Drawing the Matrix
+Description
+
+Computers need a way to store graph structures. One of the most intuitive methods is using anAdjacency Matrix. This is an N×N 2D table.
+
+Please write a program that reads the edge list of anUndirected Graphand converts it into an Adjacency Matrix.Rule: If there is an edge between vertex i
+and vertex j, the entry at row i, column j(and row j, column i) should be 1; otherwise, it should be 0.
+
+Input
+
+The first line contains two integers N and M, representing the number of vertices and edges. Vertices are numbered from 1 to N.
+
+The next M lines each contain two integers u and v, representing an edge between vertex u and vertex v.
+
+
+Output
+
+N lines, each containing N integers (0 or 1 ) separated by spaces, representing the constructed Adjacency Matrix.
+Sample input:
+3 2
+1 2
+3 1
+Sample output:
+0 1 1
+1 0 0
+1 0 0

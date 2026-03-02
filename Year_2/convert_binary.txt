@@ -1,0 +1,30 @@
+Given a general tree, convert it into a binary tree using the "Left-Child, Right-Sibling" rule, and output thePre-order Traversalof the converted binary tree.
+
+Rule 1: TheFirst Childin the general tree becomes theLeft Childin the binary tree.
+
+Rule 2: TheNext Siblingin the general tree becomes theRight Childin the binary tree.
+Complete this function
+struct GNode { int id; vector<GNode*> children; };
+struct BNode { int id; BNode *left = nullptr, *right = nullptr; };
+
+BNode* convert(GNode* root) {
+    if (!root) return nullptr;
+    BNode* bRoot = new BNode{root->id};
+
+    if (!root->children.empty()) {
+        // TODO: 1. Convert first child to bRoot->left
+        
+        // TODO: 2. Convert remaining children to the right sibling chain of bRoot->left
+        
+    }
+    return bRoot;
+}
+input
+
+4 1
+1 2
+1 3
+1 4
+
+output
+1 2 3 4

@@ -1,0 +1,24 @@
+Implement the insertion operation for a Max-Heap. Given a sequence of numbers, insert them into the heap one by one. After each insertion, the new element is at the end of the array and requiresSift Upto maintain the heap property (Parent
+≥
+≥Child). Output the final heap array.
+Complete this function
+input
+5
+10 20 15 30 40 
+output
+40 30 15 10 20
+
+vector<int> heap;
+
+void siftUp(int index) {
+    // TODO:
+    // 1. Calculate parent index = (index - 1) / 2
+    // 2. While index > 0 and heap[index] > heap[parent]:
+    //    - Swap values
+    //    - Update index to parent
+}
+
+void push(int val) {
+    heap.push_back(val);
+    siftUp(heap.size() - 1);
+}

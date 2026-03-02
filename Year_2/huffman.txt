@@ -1,0 +1,132 @@
+Huffman Compression(Binary Tree)
+Huffman coding is a lossless data compression algorithm that uses variable-length codes to represent symbols based on their frequencies. The most frequent symbols are assigned shorter codes, while less frequent symbols receive longer codes. This results in efficient compression of data.
+Properties of Huffman Coding:
+1. Prefix-Free Codes: No code is a prefix of another code, ensuring that the encoded data can be uniquely decoded.
+2. Optimality: Huffman coding produces the most efficient binary code for a given set of symbol frequencies.
+3. Binary Tree Structure: Huffman coding uses a binary tree to represent the codes, where each leaf node corresponds to a symbol, and the path from the root to the leaf determines the code for that symbol.
+Huffman Coding Algorithm:
+1. Frequency Calculation: Count the frequency of each symbol in the input data.
+2. Priority Queue: Create a priority queue (min-heap) to store the symbols based on their frequencies.
+3. Tree Construction: While there is more than one node in the queue:
+   a. Remove the two nodes with the lowest frequencies.
+   b. Create a new internal node with these two nodes as children and a frequency equal to the sum of their frequencies.
+   c. Insert the new node back into the priority queue.
+4. Code Assignment: Once the tree is constructed, traverse it to assign binary codes to each symbol. Moving left adds a '0' to the code, and moving right adds a '1'.
+5. Encoding: Replace each symbol in the input data with its corresponding binary code to produce the compressed output.
+
+How the Huffman Coding Program Works (Conceptual Explanation)
+
+Huffman Coding is a lossless data compression algorithm that assigns variable-length codes to characters based on their frequencies.
+More frequent characters get shorter codes, and less frequent characters get longer codes, minimizing the total size of the data.
+
+The program works in several main stages, using a binary tree and a priority queue.
+
+ 1. Frequency Analysis
+
+The first step is to examine the input text and count how many times each character appears.
+
+Each character is paired with its frequency.
+
+This information is stored in a mapping (like a dictionary).
+
+This forms the foundation for building the Huffman tree: characters with smaller frequencies will end up deeper in the tree, and more frequent characters will be closer to the root.
+
+ 2. Creating Leaf Nodes
+
+For each character and its frequency:
+
+A leaf node is created in a binary tree, representing that character.
+
+These nodes are inserted into a min-priority queue, ordered by frequency.
+
+The smallest frequency nodes are always at the top.
+
+The priority queue ensures the greedy algorithm works efficiently by always selecting the two smallest nodes at each step.
+
+ 3. Building the Huffman Tree
+
+The Huffman tree is built iteratively:
+
+Remove the two nodes with the smallest frequencies from the priority queue.
+
+Create a new parent node:
+
+Its frequency is the sum of the two nodes’ frequencies.
+
+The two nodes become its left and right children.
+
+Insert the new parent node back into the priority queue.
+
+This process repeats until there is only one node left in the queue, which becomes the root of the Huffman tree.
+
+At the end, the tree has the prefix property, meaning no character’s code is a prefix of another. This ensures unambiguous decoding.
+
+ 4. Generating Codes
+
+Once the Huffman tree is built:
+
+The program traverses the tree from the root to all leaves.
+
+Moving left adds a 0 to the code, moving right adds a 1.
+
+When a leaf is reached, the current path becomes that character’s Huffman code.
+
+This generates a mapping from characters to binary codes.
+
+ 5. Encoding the Text
+
+The original text is scanned character by character.
+
+Each character is replaced with its corresponding Huffman code.
+
+This produces a compressed bitstring, often much shorter than the original representation.
+
+Characters that occur frequently will appear as shorter sequences of bits, saving space.
+
+ 6. Decoding the Bitstring
+
+To recover the original text:
+
+Start at the root of the Huffman tree.
+
+Read the compressed bitstring bit by bit:
+
+0 → move to the left child
+
+1 → move to the right child
+
+When a leaf node is reached, output the corresponding character and return to the root.
+
+Repeat until all bits are processed.
+
+Because the tree satisfies the prefix property, decoding is unambiguous.
+
+ 7. Memory Management
+
+Since the tree uses dynamic memory allocation:
+
+Each node is created when building the tree.
+
+After encoding and decoding, all nodes must be freed to avoid memory leaks.
+
+ 8. Why Huffman Coding Works Efficiently
+
+The priority queue ensures that at each step the smallest-frequency nodes are combined, which is the greedy choice.
+
+The tree depth is proportional to the logarithm of frequency combinations, so the resulting codes are compact.
+
+Encoding and decoding are fast because traversal depends only on the number of bits, and the tree is strictly binary.
+
+ 9. Summary of the Process
+
+Count character frequencies → prepare for tree construction.
+
+Build the Huffman tree using a min-priority queue and iterative merging.
+
+Traverse the tree to assign binary codes to characters.
+
+Encode the text by replacing characters with codes.
+
+Decode by walking the tree according to the bitstring.
+
+Free memory when done.
